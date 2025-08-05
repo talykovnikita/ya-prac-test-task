@@ -59,6 +59,7 @@ public class DeliveryDistanceTest {
     }
 
     @Test
+    @DisplayName("Получение исключения при маппинге расстояния null")
     void nullDeliveryDistanceTest() {
         assertThatThrownBy(() ->DeliveryDistance.getByDistance(null))
                 .isInstanceOf(DeliveryDistanceException.class)
@@ -66,6 +67,7 @@ public class DeliveryDistanceTest {
     }
 
     @Test
+    @DisplayName("Получение исключения при маппинге расстояния 0")
     void zeroDeliveryDistanceTest() {
         assertThatThrownBy(() ->DeliveryDistance.getByDistance(BigDecimal.ZERO))
                 .isInstanceOf(DeliveryDistanceException.class)

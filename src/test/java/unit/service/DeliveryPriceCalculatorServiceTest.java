@@ -1,5 +1,7 @@
 package unit.service;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.talykov.constants.DeliveryServiceLoad;
@@ -11,6 +13,9 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+
+@Epic("unit")
+@Feature("Тесты класса DeliveryPriceCalculatorService")
 public class DeliveryPriceCalculatorServiceTest {
     private final DeliveryPriceCalculatorService deliveryPriceCalculatorService = new DeliveryPriceCalculatorService();
 
@@ -39,7 +44,7 @@ public class DeliveryPriceCalculatorServiceTest {
     }
 
     @Test
-    @DisplayName("Валидация размера посылки != null")
+    @DisplayName("Валидация состояние загрузки сервиса доставки != null")
     void nullDeliveryServiceLoad() {
         assertThatThrownBy(() -> deliveryPriceCalculatorService.calculate(
                 BigDecimal.ONE,
