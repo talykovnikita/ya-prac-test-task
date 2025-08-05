@@ -38,12 +38,12 @@ public class DeliveryPriceCalculatorService {
         BigDecimal fragilePrice = isFragile ? Configuration.FRAGILE_ADDITIONAL_PRICE : BigDecimal.ZERO;
         BigDecimal deliveryServiceLoadKoef = deliveryServiceLoad.getPriceKoef();
 
-        BigDecimal deliverPrice = distancePrice
+        BigDecimal calculatedPrice = distancePrice
                 .add(packageSizePrice)
                 .add(fragilePrice)
                 .multiply(deliveryServiceLoadKoef);
 
-        BigDecimal finalPrice = deliverPrice.compareTo(Configuration.MIN_PRICE) < 0 ? Configuration.MIN_PRICE : deliverPrice;
+        BigDecimal finalPrice = calculatedPrice.compareTo(Configuration.MIN_PRICE) < 0 ? Configuration.MIN_PRICE : calculatedPrice;
         return RoundService.round(finalPrice);
     }
 }

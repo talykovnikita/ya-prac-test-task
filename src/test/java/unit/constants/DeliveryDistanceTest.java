@@ -21,7 +21,7 @@ public class DeliveryDistanceTest {
     @Test
     @DisplayName("Маппинг цена для расстояния > 30км")
     void getVeryLongPrice() {
-        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(30.1));
+        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(30));
 
         Assertions.assertThat(distance)
                 .as("Неверный маппинг цены для VERY_LONG дистанций")
@@ -31,7 +31,7 @@ public class DeliveryDistanceTest {
     @Test
     @DisplayName("Маппинг цена для расстояния между 10км и 30км")
     void getLongPrice() {
-        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(17.1));
+        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(29.9));
 
         Assertions.assertThat(distance)
                 .as("Неверный маппинг цены для LONG дистанций")
@@ -41,7 +41,7 @@ public class DeliveryDistanceTest {
     @Test
     @DisplayName("Маппинг цена для расстояния между 2 и 10 км")
     void getNormalPrice() {
-        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(8.8));
+        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(2));
 
         Assertions.assertThat(distance)
                 .as("Неверный маппинг цены для NORMAL дистанций")
@@ -51,7 +51,7 @@ public class DeliveryDistanceTest {
     @Test
     @DisplayName("Маппинг цена для расстояния < 2км")
     void getShortPrice() {
-        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(1.14));
+        final var distance = DeliveryDistance.getByDistance(BigDecimal.valueOf(1.99));
 
         Assertions.assertThat(distance)
                 .as("Неверный маппинг цены для SHORT дистанций")
